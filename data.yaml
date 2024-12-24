@@ -1,0 +1,24 @@
+# 由我们没有指定测试集，所以我们把测试集的路径删除，然后将指定训练集和验证集的路径。
+train: /yolov8/detect/train/images
+val: /yolov8/detect/valid/images
+# test: ../test/images
+
+# 这里是我们的类别标签。
+nc: 3
+names: ['Paper', 'Rock', 'Scissors']
+
+# 这个不需要修改，默认即可。
+roboflow:
+  workspace: lab-ilth7
+  project: rock-paper-scissors-sxsw-9yqvv
+  version: 2
+  license: Private
+  url: https://universe.roboflow.com/lab-ilth7/rock-paper-scissors-sxsw-9yqvv/dataset/2
+
+
+# 然后我们在终端输入如下命令：
+# yolo task=detect mode=train model=/yolov8/detect/yolov8n.pt data=/yolov8/detect/data.yaml epochs=20 workers=0 imgsz=640
+
+# 随后，程序会自动开始训练，并在训练过程中保存模型。
+
+# 然后，我们新建一个test.py文件来进行模型的测试。
